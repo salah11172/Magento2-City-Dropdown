@@ -11,7 +11,9 @@ interface RomCityInterface
     public const ENTITY_ID = 'entity_id';
     public const REGION_ID = 'region_id';
     public const CITY_NAME = 'city';
-    public const LOCALE    = 'locale';
+    public const LOCALE = 'locale';
+
+
 
     public function getEntityId();
 

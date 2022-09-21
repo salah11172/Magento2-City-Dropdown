@@ -105,7 +105,7 @@ class Upload extends Action
                 $regionId = $dataRow['region_id'];
                 $cityName = $dataRow['city'];
                 $entityId = $dataRow['entity_id'];
-                $locale   = $dataRow['locale'];
+                $cityAr = $dataRow['city_ar'];
 
 
                 $romCityRepository = $this->romCityFactory->create();

@@ -8,6 +8,7 @@ use Eadesigndev\RomCity\Model\RomCity;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Backend\Block\Template\Context;
+use Magento\Store\Api\Data\StoreInterface;
 
 /**
  * Class CityUpdater
@@ -24,11 +25,15 @@ class CityUpdater extends Template
     /** @var SerializerInterface  */
     private $serializer;
 
+    /** @var StoreInterface **/
+    protected $_storeManager;  
+
     public function __construct(
         Context $context,
         RomCityRepository $romCityRepository,
         SearchCriteriaBuilder $searchCriteria,
         SerializerInterface $serializer,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,        
 
         array $data = []
     )
@@ -36,6 +41,7 @@ class CityUpdater extends Template
         $this->searchCriteria = $searchCriteria;
         $this->romCityRepository = $romCityRepository;
         $this->serializer = $serializer;
+        $this->_storeManager = $storeManager; 
         parent::__construct($context, $data);
     }
 

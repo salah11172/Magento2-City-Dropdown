@@ -7,6 +7,7 @@ namespace Eadesigndev\RomCity\Model;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Serialize\SerializerInterface;
+use Magento\Store\Api\Data\StoreInterface;
 use Magento\Framework\Locale\Resolver;
 
 
@@ -29,11 +30,13 @@ class Cities implements ConfigProviderInterface
         RomCityRepository $romCityRepository,
         SearchCriteriaBuilder $searchCriteria,
         SerializerInterface $serializer,
+        StoreManagerInterface $storeManager,
         Resolver $localeResolver
     ) {
         $this->romCityRepository = $romCityRepository;
         $this->searchCriteria = $searchCriteria;
         $this->serializer = $serializer;
+        $this->storeManager = $storeManager;
         $this->localeResolver = $localeResolver;        
 
     }
@@ -44,9 +47,17 @@ class Cities implements ConfigProviderInterface
             'cities' => $this->getCities()
         ];
     }
- 
+
+
+  
+
+
+
+  
+
     private function getCities(): string
     {
+        // $storeCode = $this->storeManager->getStore()->getLocaleCode();
         $localeCode = $this->localeResolver->getLocale();
 
         $searchCriteriaBuilder = $this->searchCriteria;

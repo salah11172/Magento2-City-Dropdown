@@ -8,7 +8,7 @@
         <column xsi:type="int" name="region_id" padding="10" unsigned="true" nullable="false" identity="false"
                 default="0" comment="Region id"/>
         <column xsi:type="text" name="city" nullable="false" comment="City name"/>
-        <column xsi:type="text" name="locale" nullable="false" comment="locale"/>
+        <column xsi:type="text" name="locale" nullable="false" comment="locale "/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>
         </constraint>
