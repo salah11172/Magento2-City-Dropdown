@@ -105,17 +105,21 @@ class Upload extends Action
                 $regionId = $dataRow['region_id'];
                 $cityName = $dataRow['city'];
                 $entityId = $dataRow['entity_id'];
+                $locale   = $dataRow['locale'];
+
 
                 $romCityRepository = $this->romCityFactory->create();
                 if (isset($entityId) && is_numeric($entityId)) {
                     $romCityRepository = $this->romCityRepository->getById($entityId);
                     $romCityRepository->setCityName($cityName);
+                    $romCityRepository->setLocale($locale);
                     $this->romCityRepository->save($romCityRepository);
                     continue;
                 }
 
                 $romCityRepository->setRegionId($regionId);
                 $romCityRepository->setCityName($cityName);
+                $romCityRepository->setLocale($locale);
 
                 $collection->addItem($romCityRepository);
             }
@@ -154,6 +158,10 @@ class Upload extends Action
 
                 if ($key == 2) {
                     $csvValueProcessed['city'] = $value;
+                }
+
+                if ($key == 3) {
+                    $csvValueProcessed['locale'] = $value;
                 }
             }
             $csvDataProcessed[] = $csvValueProcessed;

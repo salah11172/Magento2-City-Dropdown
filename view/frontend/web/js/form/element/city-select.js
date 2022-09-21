@@ -36,6 +36,7 @@ define([
                 cities,
                 regions = JSON.parse(window.checkoutConfig.cities);
 
+
             if (regions && regions[regionId] && regions[regionId].length) {
                 cities = regions[regionId];
 
@@ -49,8 +50,9 @@ define([
                 this.value(null);
             }
 
+
             if (options && options.length) {
-                options = [{title: "", value: "", label: "Selectati localitatea"}].concat(options);
+                options = [{title: "", value: "", label: 'Choose City'}].concat(options);
                 this.visible(true);
 
                 cityValue = registry.get(this.imports.city).value();
@@ -59,6 +61,7 @@ define([
                     this.value(cityValue)
                 }
             }
+            
 
             this.options(options);
         },

@@ -11,7 +11,7 @@ interface RomCityInterface
     public const ENTITY_ID = 'entity_id';
     public const REGION_ID = 'region_id';
     public const CITY_NAME = 'city';
-
+    public const LOCALE    = 'locale';
 
     public function getEntityId();
 
@@ -19,9 +19,14 @@ interface RomCityInterface
 
     public function getCityName();
 
+    public function getLocale();
+
     public function setEntityId($entityId);
 
     public function setRegionId($regionId);
 
     public function setCityName($cityName);
+
+    public function setLocale($locale);
+
 }

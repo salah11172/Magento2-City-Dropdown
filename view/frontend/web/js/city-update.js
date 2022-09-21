@@ -25,7 +25,7 @@ define([
                 });
                 var city = $("[name*='city']"),
                     selectCity = city.replaceWith("<select class='required-entry' name='city' id='city'>") + '</select>',
-                    htmlSelect = '<option>Selectati localitatea</option>',
+                    htmlSelect = '<option>'+$.mage.__('Choose City');+'</option>',
                     options;
 
                 $.each(region, function (index, value) {

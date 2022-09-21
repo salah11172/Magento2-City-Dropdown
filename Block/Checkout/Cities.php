@@ -17,7 +17,7 @@ class Cities extends Template
     private $searchCriteria;
 
     /** @var SerializerInterface  */
-    private $serializer;
+    private $serializer;  
 
     public function __construct(
         Template\Context $context,
@@ -38,17 +38,16 @@ class Cities extends Template
 
         $searchCriteriaBuilder = $this->searchCriteria;
         $searchCriteria = $searchCriteriaBuilder->create();
-
         $citiesList = $this->romCityRepository->getList($searchCriteria);
         $items = $citiesList->getItems();
-
         $return = [];
 
         /** @var RomCity $item */
         foreach ($items as $item) {
-            $return[] = ['region_id' => $item->getRegionId(), 'city_name' => $item->getCityName()];
+            $return[] = ['region_id' => $item->getRegionId(), 'city_name' => $item->getCityName(), 'locale' => $item->getLocale()];
         }
 
         return $this->serializer->serialize($return);
     }
+      
 }

@@ -29,6 +29,7 @@ class CityUpdater extends Template
         RomCityRepository $romCityRepository,
         SearchCriteriaBuilder $searchCriteria,
         SerializerInterface $serializer,
+
         array $data = []
     )
     {
@@ -51,9 +52,11 @@ class CityUpdater extends Template
 
         /** @var RomCity $item */
         foreach ($items as $item) {
-            $return[] = ['region_id' => $item->getRegionId(), 'city_name' => $item->getCityName()];
+            $return[] = ['region_id' => $item->getRegionId(), 'city_name' => $item->getCityName(), 'locale' => $item->getLocale()];
         }
 
         return $this->serializer->serialize($return);
     }
+
+ 
 }

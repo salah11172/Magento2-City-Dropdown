@@ -89,8 +89,10 @@ class CitiesJsonRomCity extends Data
                 if ($entityId == $regionId) {
                     $id       = $cityData->getId();
                     $cityName = $cityData->getCityName();
+                    $locale = $cityData->getLocale();
                     $cities[$id] = [
                         'name' => $cityName,
+                        'locale' => $locale,
                         'id' => $cityId
                     ];
                 }

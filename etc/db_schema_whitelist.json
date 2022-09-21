@@ -3,7 +3,8 @@
         "column": {
             "entity_id": true,
             "region_id": true,
-            "city": true
+            "city": true,
+            "locale": true
         },
         "index": {
             "EADESIGN_ROMCITY_REGION_ID": true
